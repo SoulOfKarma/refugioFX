@@ -1,0 +1,51 @@
+.parent{
+   -fx-background-color: #fff;
+}
+.sidebar
+{
+    -fx-background-color: #2c5262;
+}
+.btns
+{
+    -fx-background-color: transparent;
+}
+.btns:hover
+{
+    -fx-background-color: #202332;
+}
+
+.btnLogin
+{
+    -fx-background-color:  #2C5262;
+    -fx-text-fill: #FFF;
+    -fx-border-radius: 10px;
+}
+
+.btnLogin:hover
+{
+    -fx-text-fill: #FFF;
+    -fx-border-color: #2C5262;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-border-radius: 10px;
+}
+
+.txtCorreo
+{
+  -fx-prompt-text-fill: #FFF;
+}
+
+.txtPass
+{
+  -fx-prompt-text-fill: #FFF;
+}
+
+.barIngresos
+{
+  -fx-bar-fill: #60F40C; 
+}
+
+.barReservas
+{
+  -fx-bar-fill: #0C68F4; 
+}

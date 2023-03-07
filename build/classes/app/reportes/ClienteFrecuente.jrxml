@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9214af4d-5031-44eb-8620-26a6ef8c0fdd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fechaInicio" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaTermino" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select tbl_cliente.nombre_cli,tbl_cliente.apellido_cli,count(tbl_reserva.id_cliente) from tbl_reserva 
+JOIN tbl_cliente ON tbl_reserva.id_cliente = tbl_cliente.id_cliente
+WHERE tbl_reserva.fecha_reserva BETWEEN $P{fechaInicio} AND $P{fechaTermino}
+GROUP BY tbl_cliente.nombre_cli,tbl_cliente.apellido_cli]]>
+	</queryString>
+	<field name="NOMBRE_CLI" class="java.lang.String"/>
+	<field name="APELLIDO_CLI" class="java.lang.String"/>
+	<field name="COUNT(TBL_RESERVA.ID_CLIENTE)" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="115" y="12" width="337" height="47" uuid="2135c484-315d-4263-8059-2fbba7005acd"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte de clientes frecuentes]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="-2" width="115" height="81" uuid="2f9386de-47de-476b-a2ab-867308bc8f9a"/>
+				<imageExpression><![CDATA["Z:\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="82" y="2" width="100" height="20" uuid="10ff5a4d-96da-46a6-865a-27620658c820"/>
+				<text><![CDATA[Nombre de usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="2" width="115" height="20" uuid="afef6045-8798-43ba-b966-b4f1f05384f2"/>
+				<text><![CDATA[Frecuencia de reservas]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="552" height="1" uuid="0c97791e-08e7-4603-9f78-e4b1be199c1b"/>
+			</line>
+			<staticText>
+				<reportElement x="203" y="2" width="100" height="20" uuid="3f57a930-cad6-4dec-b848-d109c5c59e0b"/>
+				<text><![CDATA[Apellido de usuario]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="28" y="7" width="27" height="20" uuid="973e7a13-5e92-43f5-9f86-09ee42924719"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="26" width="555" height="1" uuid="c6a129a8-1b47-4ead-93d3-292c26b64c6c"/>
+			</line>
+			<textField>
+				<reportElement x="82" y="6" width="100" height="20" uuid="664e595c-b4e4-491c-b7a4-42ecc9e28419"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_CLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="6" width="100" height="20" uuid="4152313a-54f4-483a-9f74-6413333fc4fc"/>
+				<textFieldExpression><![CDATA[$F{APELLIDO_CLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="6" width="100" height="20" uuid="d8dd01e7-8be1-424c-ada8-cbf53671de68"/>
+				<textFieldExpression><![CDATA[$F{COUNT(TBL_RESERVA.ID_CLIENTE)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="452" y="21" width="100" height="20" uuid="97628319-2419-498f-b65b-90055ed055a6"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="414" y="21" width="100" height="20" uuid="e95747ee-e73d-457e-bb96-945bd5fb027d"/>
+				<text><![CDATA[Pagina]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="15" y="21" width="100" height="20" uuid="0208cb37-ef44-424f-bddc-f185c39ee2e6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

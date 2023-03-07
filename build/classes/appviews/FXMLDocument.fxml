@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: 2C5262;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.FXMLDocumentController">
+   <children>
+      <VBox alignment="CENTER" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #2C5262;">
+         <children>
+            <ImageView fitHeight="149.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../app/imagenes/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Pane layoutX="393.0" prefHeight="600.0" prefWidth="408.0" style="-fx-background-color: f2545b;">
+         <children>
+            <JFXTextField fx:id="txtCorreo" focusColor="#f3f3f5" labelFloat="true" layoutX="79.0" layoutY="221.0" prefHeight="25.0" prefWidth="243.0" promptText="Correo" styleClass="txtCorreo" stylesheets="@../app.styles/styles.css" unFocusColor="#4d4c4c" />
+            <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="51.0" layoutY="382.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#login" prefHeight="50.0" prefWidth="300.0" ripplerFill="#4456bc" styleClass="btnLogin" stylesheets="@../app.styles/styles.css" text="Iniciar" textFill="#eeeeee" />
+            <JFXPasswordField fx:id="txtPass" focusColor="#e8e9ee" labelFloat="true" layoutX="79.0" layoutY="288.0" prefHeight="25.0" prefWidth="243.0" promptText="Contraseña" styleClass="txtPass" stylesheets="@../app.styles/styles.css" />
+            <ImageView fitHeight="101.0" fitWidth="111.0" layoutX="149.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../app/imagenes/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="123.0" layoutY="105.0" text="Bienvenido,">
+               <font>
+                  <Font name="Gadugi Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="105.0" layoutY="140.0" text="Inicia Sesion para continuar">
+               <font>
+                  <Font name="Gadugi" size="14.0" />
+               </font>
+            </Label>
+            <FontAwesomeIcon fx:id="btnCerrarApp" iconName="CLOSE" layoutX="386.0" layoutY="18.0" onMouseClicked="#cerrarAplicacion" wrappingWidth="16.428571701049805" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

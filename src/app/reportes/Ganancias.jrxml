@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5614a0af-4c59-4760-8df7-056600868e22">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fechaI" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaT" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select tbl_reserva.id_dep,tbl_departamento.nombre_edificio,tbl_reserva.fecha_reserva,
+tbl_boleta.total_boleta-sum(tbl_detalle_gastos_dep.precio_gasto) from tbl_boleta
+JOIN tbl_detalle_boleta ON tbl_detalle_boleta.id_boleta = tbl_boleta.id_boleta
+JOIN tbl_reserva ON tbl_reserva.id_reserva = tbl_detalle_boleta.id_reserva
+JOIN tbl_departamento ON tbl_reserva.id_dep = tbl_departamento.id_dep
+JOIN tbl_detalle_gastos_dep ON tbl_detalle_gastos_dep.id_dep = tbl_departamento.id_dep
+WHERE tbl_reserva.fecha_reserva BETWEEN $P{fechaI} AND $P{fechaT}
+GROUP BY tbl_reserva.id_dep,tbl_departamento.nombre_edificio,tbl_reserva.fecha_reserva,tbl_boleta.total_boleta]]>
+	</queryString>
+	<field name="ID_DEP" class="java.math.BigDecimal"/>
+	<field name="NOMBRE_EDIFICIO" class="java.lang.String"/>
+	<field name="FECHA_RESERVA" class="java.sql.Timestamp"/>
+	<field name="TBL_BOLETA.TOTAL_BOLETA-SUM(TBL_DETALLE_GASTOS_DEP.PRECIO_GASTO)" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="163" y="13" width="262" height="53" uuid="9ad59b3c-7c86-4c8e-8ec3-116bb0fb3237"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Reportes de Utilidades]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="100" height="79" uuid="0493f313-b791-428b-bcdb-68c0712ebae7"/>
+				<imageExpression><![CDATA["Z:\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="81" y="1" width="100" height="20" uuid="794a95f6-c9fa-498e-8db5-6f21680b0607"/>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="229" y="1" width="100" height="20" uuid="de6ef76a-c41d-4317-9ac5-70a6fe6154c2"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="0" width="100" height="20" uuid="77c739ff-2a82-490c-852d-94d4557271e2"/>
+				<text><![CDATA[Utilidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="1" width="22" height="20" uuid="be193dfe-60f6-47e3-bccc-0f9df6b61d2b"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="2" width="100" height="20" uuid="c3ad0cb6-9898-436e-8be0-4c0cfc059f0d"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_EDIFICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="3" width="100" height="20" uuid="9b1b580b-d888-41c5-9747-c6dbbf119182"/>
+				<textFieldExpression><![CDATA[$F{FECHA_RESERVA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="2" width="100" height="20" uuid="4c269a34-54bf-4ff7-b7b6-e71b76f8e770"/>
+				<textFieldExpression><![CDATA[$F{TBL_BOLETA.TOTAL_BOLETA-SUM(TBL_DETALLE_GASTOS_DEP.PRECIO_GASTO)}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="402" y="2" width="10" height="20" uuid="9bf64a72-8de8-4e0e-9069-4941ea51872b"/>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="555" height="1" uuid="9b312a0f-caa2-42b2-8e62-7d3c3a42c1c8"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="21f48f7f-e6b2-40c1-a925-a60e48a8caaa"/>
+			</line>
+			<line>
+				<reportElement x="555" y="2" width="1" height="21" uuid="b48b3e3d-456d-40b4-a411-82184bc1afb0"/>
+			</line>
+			<line>
+				<reportElement x="372" y="2" width="1" height="21" uuid="bd9c5311-9beb-4aed-8c41-1c8b2c083972"/>
+			</line>
+			<line>
+				<reportElement x="217" y="1" width="1" height="21" uuid="55ddd52c-4030-442b-bf14-59fa8fd86f84"/>
+			</line>
+			<line>
+				<reportElement x="0" y="2" width="1" height="21" uuid="942a35af-564d-4e7e-b676-1cea14a144cc"/>
+			</line>
+			<line>
+				<reportElement x="47" y="0" width="1" height="21" uuid="2a934479-9270-4c6c-99b4-118e04d07a44"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="458" y="34" width="54" height="20" uuid="c82bc95d-e194-4c30-ac16-d0d94a874e7a"/>
+				<text><![CDATA[Pagina]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="34" width="100" height="20" uuid="5969c0f3-aa9b-45db-b3fa-65b9cd61ac21"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="34" width="55" height="20" uuid="cd051ccf-1d35-4e9c-8f4b-b3d048e33388"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

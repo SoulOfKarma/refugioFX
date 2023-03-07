@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="1318.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.DepartamentoController">
+   <children>
+      <VBox layoutX="-4.0" prefHeight="616.0" prefWidth="219.0" styleClass="sidebar" stylesheets="@../app.styles/styles.css">
+         <children>
+            <Label fx:id="principal" onMouseClicked="#menuPrincipal" prefHeight="75.0" prefWidth="312.0" style="-fx-background-color: #f2545b;" text="Panel del Administrador" textFill="#fffefe">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="Ebrima" size="18.0" />
+               </font>
+            </Label>
+            <HBox fx:id="boxDep" alignment="CENTER_LEFT" layoutX="10.0" layoutY="95.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="departamentos" onMouseClicked="#depMenu" prefHeight="40.0" prefWidth="284.0" styleClass="btns" text="Departamentos" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="cargarFotosDep" onMouseClicked="#cargarFotosDep" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Cargar Fotos Departamento" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="122.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="inventarios" onMouseClicked="#invMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Inventarios" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="166.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="usuarios" onMouseClicked="#usuariosMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Usuarios" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="210.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="servextra" onMouseClicked="#servExtraMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Servicios Extra" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="254.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="proveedores" onMouseClicked="#proveedoresMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Proveedores" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="detalleGasto" onMouseClicked="#detalleGastoMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Detalle Gastos" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="298.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="gastos" onMouseClicked="#gastosMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Gastos" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="reportes" onMouseClicked="#reportesMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Reportes" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="CLOSE" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="cerrarSesions" onMouseClicked="#cerrarSesion" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Cerrar Sesion" textFill="WHITE">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="216.0" prefHeight="616.0" prefWidth="1105.0" stylesheets="@../app.styles/styles.css">
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="1105.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="19.0" radius="6.75" width="10.0" />
+               </effect>
+               <children>
+                  <Label layoutX="21.0" layoutY="26.0" text="Departamento" textFill="#4f565b">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="94.0" fitWidth="95.0" layoutX="1011.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../app/imagenes/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <SplitPane dividerPositions="0.4659090909090909" orientation="VERTICAL" prefHeight="530.0" prefWidth="968.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="231.0" prefWidth="1103.0">
+                     <children>
+                        <Label layoutX="43.0" layoutY="14.0" text="Nombre Propiedad:" />
+                        <Label layoutX="333.0" layoutY="14.0" text="Rol Propiedad:" />
+                        <Label layoutX="34.0" layoutY="57.0" text="Direccion Propiedad:" />
+                        <Label layoutX="371.0" layoutY="49.0" prefHeight="17.0" prefWidth="48.0" text="N° Piso:" />
+                        <Label layoutX="567.0" layoutY="115.0" text="Valor departamento:" />
+                        <TextField fx:id="txtNPropiedad" layoutX="153.0" layoutY="10.0" prefHeight="25.0" prefWidth="147.0" />
+                        <TextField fx:id="txtRolPropiedad" layoutX="418.0" layoutY="10.0" prefHeight="25.0" prefWidth="139.0" />
+                        <TextField fx:id="txtDirPropiedad" layoutX="154.0" layoutY="53.0" prefHeight="25.0" prefWidth="147.0" />
+                        <TextField fx:id="txtNPiso" layoutX="418.0" layoutY="45.0" prefHeight="25.0" prefWidth="139.0" />
+                        <TextField fx:id="txtValDep" layoutX="685.0" layoutY="113.0" prefHeight="25.0" prefWidth="147.0" />
+                        <Label layoutX="314.0" layoutY="87.0" text="N° Departamento:" />
+                        <TextField fx:id="txtNDep" layoutX="418.0" layoutY="83.0" prefHeight="25.0" prefWidth="139.0" />
+                        <Label layoutX="102.0" layoutY="87.0" text="Region:" />
+                        <Label layoutX="97.0" layoutY="128.0" text="Provincia:" />
+                        <Label layoutX="99.0" layoutY="161.0" text="Comuna:" />
+                        <ComboBox fx:id="cbRegion" layoutX="154.0" layoutY="87.0" onAction="#regionMP" onMousePressed="#regionMP" onTouchReleased="#regionMP" prefHeight="25.0" prefWidth="147.0" />
+                        <ComboBox fx:id="cbProvincia" layoutX="153.0" layoutY="124.0" onAction="#provinciaMP" prefHeight="25.0" prefWidth="147.0" />
+                        <ComboBox fx:id="cbComuna" layoutX="154.0" layoutY="157.0" prefHeight="25.0" prefWidth="147.0" />
+                        <Label layoutX="358.0" layoutY="122.0" text="N° Baños:" />
+                        <TextField fx:id="txtNBanos" layoutX="418.0" layoutY="118.0" prefHeight="25.0" prefWidth="139.0" />
+                        <Label layoutX="357.0" layoutY="161.0" text="N° Camas:" />
+                        <TextField fx:id="txtNCamas" layoutX="418.0" layoutY="157.0" prefHeight="25.0" prefWidth="139.0" />
+                        <Label layoutX="586.0" layoutY="15.0" text="N° Habitaciones:" />
+                        <TextField fx:id="txtNHab" layoutX="683.0" layoutY="11.0" prefHeight="25.0" prefWidth="147.0" />
+                        <Label layoutX="568.0" layoutY="50.0" text="Fecha Construccion:" />
+                        <Label layoutX="656.0" layoutY="80.0" text="M²:" />
+                        <TextField fx:id="txtMCuadrado" layoutX="683.0" layoutY="76.0" />
+                        <Label layoutX="871.0" layoutY="161.0" text="Valor Arriendo:" />
+                        <TextField fx:id="txtValArr" layoutX="955.0" layoutY="157.0" prefHeight="25.0" prefWidth="139.0" />
+                        <Label layoutX="888.0" layoutY="14.0" text="Descripcion:" />
+                        <TextField fx:id="txtDesArriendo" layoutX="959.0" layoutY="11.0" prefHeight="25.0" prefWidth="130.0" />
+                        <Label layoutX="911.0" layoutY="49.0" text="Politica:" />
+                        <TextField fx:id="txtPoliza" layoutX="959.0" layoutY="45.0" prefHeight="25.0" prefWidth="130.0" />
+                        <Label layoutX="838.0" layoutY="80.0" text="Info Complementaria:" />
+                        <TextField fx:id="txtInfoCom" layoutX="959.0" layoutY="76.0" prefHeight="25.0" prefWidth="130.0" />
+                        <Label layoutX="915.0" layoutY="115.0" text="Estado:" />
+                        <ComboBox fx:id="cbEstado" layoutX="959.0" layoutY="110.0" prefHeight="25.0" prefWidth="130.0" />
+                        <Button fx:id="Agregar" layoutX="109.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnAgregar" prefHeight="25.0" prefWidth="149.0" text="Agregar" />
+                        <ToggleButtonGroup layoutX="975.0" layoutY="203.0" selectionType="SINGLE" />
+                        <RadioButton fx:id="rbbtnSi" layoutX="1020.0" layoutY="188.0" mnemonicParsing="false" text="Si">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="usadoR" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbbtnno" layoutX="1020.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="48.0" selected="true" text="No" toggleGroup="$usadoR" />
+                        <Label layoutX="975.0" layoutY="197.0" text="Usado?" />
+                        <Button fx:id="Modificar" layoutX="343.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnModificar" prefHeight="25.0" prefWidth="139.0" text="Modificar" />
+                        <Button fx:id="Eliminar" layoutX="561.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnEliminar" prefHeight="25.0" prefWidth="130.0" text="Desactivar" />
+                        <Label fx:id="idDep" layoutX="1064.0" layoutY="214.0" prefHeight="17.0" prefWidth="4.0" visible="false" />
+                        <TextField fx:id="txtNHuespedes" layoutX="683.0" layoutY="157.0" prefHeight="25.0" prefWidth="149.0" />
+                        <Label layoutX="598.0" layoutY="161.0" text="N° Huespedes:" />
+                        <JFXDatePicker fx:id="dateFechaCon" layoutX="684.0" layoutY="39.0" prefHeight="28.0" prefWidth="149.0" />
+                        <Button fx:id="limpiar" layoutX="765.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnLimpiar" prefHeight="25.0" prefWidth="130.0" text="Limpiar" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="1103.0">
+                     <children>
+                        <TableView fx:id="tablaDepartamento" layoutY="55.0" prefHeight="474.0" prefWidth="1105.0">
+                          <columns>
+                            <TableColumn fx:id="idPropiedad" editable="false" minWidth="5.0" prefWidth="57.0" text="Id" />
+                            <TableColumn fx:id="nomPropiedad" editable="false" minWidth="6.0" prefWidth="136.0" text="Nombre Propiedad" />
+                              <TableColumn fx:id="rolPropiedad" prefWidth="90.0" text="Rol Propiedad" />
+                              <TableColumn fx:id="dirPropiedad" prefWidth="122.0" text="Direccion Propiedad" />
+                              <TableColumn fx:id="valCompra" prefWidth="115.0" text="Valor Compra" />
+                              <TableColumn fx:id="valArriendo" prefWidth="105.0" text="Valor Arriendo" />
+                              <TableColumn fx:id="dateFCon" prefWidth="142.0" text="Fecha Construccion" />
+                              <TableColumn fx:id="metroCua" prefWidth="47.0" text="M²" />
+                              <TableColumn fx:id="estDep" prefWidth="121.0" text="Estado" />
+                              <TableColumn fx:id="usadoDep" prefWidth="169.0" text="Usado" />
+                              <TableColumn fx:id="desDep" prefWidth="165.0" text="Descripcion Departamento" />
+                              <TableColumn fx:id="politicaInf" prefWidth="167.0" text="Politica" />
+                              <TableColumn fx:id="infCom" prefWidth="167.0" text="InfComp" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="197.0" layoutY="14.0" text="Filtrar por departamento" />
+                        <ComboBox fx:id="cbFiltroDep" layoutX="344.0" layoutY="10.0" onAction="#filtroDep" prefHeight="25.0" prefWidth="219.0" />
+                        <Button fx:id="cargarTodo" layoutX="661.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnCargarTodo" prefHeight="25.0" prefWidth="172.0" text="Cargar todo" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

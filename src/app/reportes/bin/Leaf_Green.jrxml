@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Leaf_Green" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e7eebaa4-068b-407f-bf7a-d4c2e72a1292">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Refugio"/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[IlRCTF9CT0xFVEEiIEFTICw3NCw1NywyZGNlZWViYy02NmE2LTQ0ZmYtYmMyZS1kOWI2OTYxNjVh
+M2I7IlRCTF9USVBPX1BBR08iIEFTICwzMDMsOTIsM2Q2MjM3YTMtMDM0OS00Yjc4LTk3YmEtMWJk
+YzJlNWI5Nzg0Ow==]]>
+	</property>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT "TBL_BOLETA"."FECHA_BOLETA",
+	"TBL_BOLETA"."SUB_TOTAL",
+	"TBL_BOLETA"."IVA",
+	"TBL_BOLETA"."TOTAL_BOLETA",
+	"TBL_TIPO_PAGO"."DESC_TIPO_PAGO"
+FROM "TBL_BOLETA"
+	INNER JOIN "TBL_TIPO_PAGO" ON 
+	 "TBL_BOLETA"."ID_TIPO_PAGO" = "TBL_TIPO_PAGO"."ID_TIPO_PAGO"]]>
+	</queryString>
+	<field name="FECHA_BOLETA" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="FECHA_BOLETA"/>
+	</field>
+	<field name="SUB_TOTAL" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SUB_TOTAL"/>
+	</field>
+	<field name="IVA" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="IVA"/>
+	</field>
+	<field name="TOTAL_BOLETA" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_BOLETA"/>
+	</field>
+	<field name="DESC_TIPO_PAGO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DESC_TIPO_PAGO"/>
+	</field>
+	<variable name="TOTAL_BOLETA1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOTAL_BOLETA}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="50" y="10" width="180" height="33" uuid="3eb8e1ab-7e38-4368-89db-62b6501a8c67"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[	Refugio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="100" y="46" width="174" height="22" uuid="0b5308cc-82cf-49a0-8011-6f875d4c5e32"/>
+				<text><![CDATA[Reporte de ingresos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="450" y="1" width="80" height="79" uuid="8db21a26-8318-45bf-beb6-d6f47cbc473f"/>
+				<imageExpression><![CDATA["C:/Users/Ricar/Documents/NetBeansProjects/Refugio/src/app/imagenes/logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="57" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="d69c6691-e92e-45c5-bf2d-c1dc15dabb91"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="110" y="20" width="70" height="16" uuid="df9e9823-cf43-4c90-b0c0-09f6a878cf4a"/>
+				<text><![CDATA[Total ingresos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="20" width="40" height="15" uuid="00de8e54-dfea-4b68-a936-4afe15d8916d"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="20" width="65" height="16" uuid="7573109b-8db4-4203-840e-8b98eabc577d"/>
+				<text><![CDATA[Tipo de pago]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="260" y="6" width="100" height="20" uuid="90c603b2-1b9c-4ed6-805c-e380519b6273"/>
+				<textFieldExpression><![CDATA[$F{FECHA_BOLETA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="6" width="110" height="20" uuid="4d0305d4-2881-4c4d-9d8d-f5597135c03f"/>
+				<textFieldExpression><![CDATA[$F{DESC_TIPO_PAGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="6" width="100" height="20" uuid="f2b9cba7-a318-4361-9c37-fe65449cb853"/>
+				<textFieldExpression><![CDATA[$F{TOTAL_BOLETA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="6" width="60" height="20" uuid="a39cc685-6b86-44ad-9994-81c0c2a3982c"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="6" width="100" height="24" uuid="4c269b97-4c2e-41b2-bf90-9a7e1559c753"/>
+				<text><![CDATA[$]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="400" y="0" width="100" height="30" uuid="3a824bb2-059f-4b1d-a4ef-a61e5c545bf6"/>
+				<textFieldExpression><![CDATA[$V{TOTAL_BOLETA1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="0" width="100" height="30" uuid="59310aaa-93bd-46b5-a75d-f254480da282"/>
+				<text><![CDATA[Total de ingresos: $]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="6f13e17d-4b46-4ede-ab63-9d2685ec9c16"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="6857db7e-824a-4cda-b8dc-fe5c95aca145"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="ef9fc35f-c45f-4ec6-a5cc-ec2020109ea7"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

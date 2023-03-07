@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c1886dc6-25d8-4b1d-ada4-350f3bdc56cf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fechaInicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaTermino" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select tbl_departamento.nombre_edificio,tbl_departamento.num_dep,tbl_gastos_departamento.nombre_gasto,tbl_detalle_gastos_dep.precio_gasto,tbl_detalle_gastos_dep.fecha_gasto from tbl_detalle_gastos_dep join tbl_gastos_departamento on tbl_detalle_gastos_dep.id_gasto = tbl_gastos_departamento.id_gasto
+join tbl_departamento on tbl_detalle_gastos_dep.id_dep = tbl_departamento.id_dep where fecha_gasto between $P{fechaInicio} and $P{fechaTermino}
+ORDER BY tbl_departamento.id_dep desc]]>
+	</queryString>
+	<field name="NOMBRE_EDIFICIO" class="java.lang.String"/>
+	<field name="NUM_DEP" class="java.lang.String"/>
+	<field name="NOMBRE_GASTO" class="java.lang.String"/>
+	<field name="PRECIO_GASTO" class="java.math.BigDecimal"/>
+	<field name="FECHA_GASTO" class="java.sql.Timestamp"/>
+	<variable name="sumTotal" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[$F{PRECIO_GASTO}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="160" y="13" width="222" height="51" uuid="10b1e043-bac4-4bcc-b99a-c2619447dc5b"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Reportes de Gastos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="87" height="79" uuid="a39dc1de-e300-4292-9412-7b673ac4318c"/>
+				<imageExpression><![CDATA["C:\\Users\\Ricar\\Documents\\NetBeansProjects\\Refugio\\src\\app\\imagenes\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="46" y="0" width="87" height="20" uuid="26484e44-451c-4fac-aa95-1941036dda78"/>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="0" width="85" height="20" uuid="ee26698d-d1e5-4264-a6a8-0c958b13067d"/>
+				<text><![CDATA[N° Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="34" height="20" uuid="e1735ef0-1b0a-41cd-ad60-eb40e419d2e0"/>
+				<text><![CDATA[Gasto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="0" width="36" height="20" uuid="31240718-4891-45d8-a840-e2f838a66b13"/>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="0" width="44" height="20" uuid="c79d0fc9-60cf-4a8e-a5d3-38ab7cd978ac"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="46" y="1" width="87" height="20" uuid="cb829e6a-9385-46d7-b929-14a4ea0ab6d3"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_EDIFICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="1" width="35" height="20" uuid="7167131e-e016-48e0-8a01-bba390799867"/>
+				<textFieldExpression><![CDATA[$F{NUM_DEP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="1" width="121" height="20" uuid="456ad510-fafd-459d-8572-96be30e12912"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_GASTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="1" width="83" height="20" uuid="6200b67b-d0b8-4c96-838b-f0a23ee7e70c"/>
+				<textFieldExpression><![CDATA[$F{PRECIO_GASTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="1" width="44" height="20" uuid="c9dcd4b7-f6a2-41a5-b635-094f15d09a95"/>
+				<textFieldExpression><![CDATA[$F{FECHA_GASTO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="369" y="0" width="13" height="20" uuid="04a2218b-9cb7-4da0-be7d-1bcc163d7141"/>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="13" y="1" width="19" height="20" uuid="0bb39347-b71c-4f03-9ef4-7600fe3ebf07"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="8ab47168-477c-40cc-9f53-af03db61f869"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="d339df97-0558-405d-9c7b-da6be6cf7834"/>
+			</line>
+			<line>
+				<reportElement x="555" y="1" width="1" height="19" uuid="b8da9ffd-8eb4-4704-b2b4-ee6baec406bd"/>
+			</line>
+			<line>
+				<reportElement x="476" y="0" width="1" height="19" uuid="786c91c8-19e8-4fb9-8f7d-9b60f50d0c89"/>
+			</line>
+			<line>
+				<reportElement x="356" y="0" width="1" height="19" uuid="44b43075-efe4-4ae5-a23d-e81a2d1d7620"/>
+			</line>
+			<line>
+				<reportElement x="234" y="3" width="1" height="19" uuid="005c7f15-bcab-4131-966d-8afcac5564c2"/>
+			</line>
+			<line>
+				<reportElement x="133" y="0" width="1" height="19" uuid="11da36e4-2081-4c76-86f7-ddb2cf03d8ef"/>
+			</line>
+			<line>
+				<reportElement x="32" y="0" width="1" height="19" uuid="a59aeab1-86d8-4673-9774-97cadde5bb42"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="19" uuid="1f84ee4b-9bb2-4859-a8bd-dba43c1b23a7"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="376" y="15" width="89" height="20" uuid="4ae39366-7eb6-47a6-abea-29c104cbc64e"/>
+				<textFieldExpression><![CDATA[$V{sumTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="369" y="15" width="13" height="20" uuid="284dfd9d-ef46-4ab0-93a6-a3baaa7c9cf4"/>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="15" width="36" height="20" uuid="00481568-7a14-4fb7-9819-554ac9660300"/>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="519" y="34" width="18" height="20" uuid="c0ef2c34-0f3c-478a-8092-5ab314abd78a"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="34" width="100" height="20" uuid="ad876146-ce66-4684-8bbb-bd2256df27c3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="480" y="34" width="39" height="20" uuid="5f565849-9a34-4c2f-bdcc-a1a20e1cf92d"/>
+				<text><![CDATA[Pagina]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

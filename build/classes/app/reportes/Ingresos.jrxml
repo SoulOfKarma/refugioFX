@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f877fbd0-21f2-45f1-9bef-4a30c65340a0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fechaInicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaTermino" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select tbl_boleta.fecha_boleta,tbl_boleta.sub_total,tbl_boleta.iva,tbl_boleta.total_boleta,tbl_tipo_pago.desc_tipo_pago from tbl_boleta 
+JOIN tbl_tipo_pago ON tbl_boleta.id_tipo_pago=tbl_tipo_pago.id_tipo_pago  where tbl_boleta.fecha_boleta BETWEEN $P{fechaInicio} and $P{fechaTermino}]]>
+	</queryString>
+	<field name="FECHA_BOLETA" class="java.sql.Timestamp"/>
+	<field name="SUB_TOTAL" class="java.math.BigDecimal"/>
+	<field name="IVA" class="java.math.BigDecimal"/>
+	<field name="TOTAL_BOLETA" class="java.math.BigDecimal"/>
+	<field name="DESC_TIPO_PAGO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="156" y="15" width="252" height="53" uuid="cd7e2d74-eb8c-4f20-81b2-55ebdacb13ba"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de ingresos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="1" y="0" width="91" height="79" uuid="b37341f5-56cd-4c6a-a081-4835d2e924d2"/>
+				<imageExpression><![CDATA["Z:\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="474" y="0" width="72" height="20" uuid="3994c6b8-2c7b-4e52-8f91-aaca8b92505b"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="0" width="74" height="20" uuid="6cb9223a-2e64-442b-8a11-234dac337cf4"/>
+				<text><![CDATA[Tipo de pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="0" width="100" height="20" uuid="e641aad7-e667-45a5-8e2e-bacfea9c154a"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="0" width="68" height="20" uuid="6087de41-07c3-4d14-bbe6-8d622177ad37"/>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="0" width="60" height="20" uuid="ef0aa027-160c-40c7-9bbe-7e10a4bf8058"/>
+				<text><![CDATA[IVA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="2" width="23" height="20" uuid="8d94ebfc-d3b4-4b68-8730-26a6a6e88970"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="484" y="2" width="62" height="20" uuid="c6922eaa-9e80-44d1-8200-15eb2cea8b4f"/>
+				<textFieldExpression><![CDATA[$F{TOTAL_BOLETA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="0" width="74" height="20" uuid="65e0c262-3f11-48b4-a683-f0cb966eea31"/>
+				<textFieldExpression><![CDATA[$F{DESC_TIPO_PAGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="2" width="100" height="20" uuid="a1f043e7-88d4-48fc-86d1-b32c87185283"/>
+				<textFieldExpression><![CDATA[$F{FECHA_BOLETA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="2" width="68" height="20" uuid="b12c5515-dfbf-468f-8f62-0b19f7eae292"/>
+				<textFieldExpression><![CDATA[$F{SUB_TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="2" width="60" height="20" uuid="84f1d862-e5d1-48be-bec4-dffe778bc4dd"/>
+				<textFieldExpression><![CDATA[$F{IVA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="474" y="2" width="10" height="20" uuid="77618f46-a82a-4d60-8444-1f6972427791"/>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="2" width="10" height="20" uuid="ccd2014a-56f5-42e3-a2c6-33a22b5c5af3"/>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="22" width="554" height="1" uuid="823a458a-ba8e-43d0-bd7c-e082ba657d75"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="554" height="2" uuid="32efda6b-5c4a-432a-817d-0e0122f7793c"/>
+			</line>
+			<line>
+				<reportElement x="554" y="2" width="1" height="20" uuid="1131b688-11e3-4396-ae97-97078e9cdf7e"/>
+			</line>
+			<line>
+				<reportElement x="458" y="2" width="1" height="21" uuid="1c00f0d7-e6f4-4659-8282-b2b74bc6eaed"/>
+			</line>
+			<line>
+				<reportElement x="316" y="0" width="1" height="23" uuid="4c9a342a-7828-4907-bf14-d1980a2b7bd2"/>
+			</line>
+			<staticText>
+				<reportElement x="227" y="3" width="10" height="17" uuid="2a881375-a253-4994-8c11-f36333c86298"/>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<line>
+				<reportElement x="216" y="0" width="1" height="23" uuid="19060c80-c779-4b82-a35a-50bb4d2e95aa"/>
+			</line>
+			<line>
+				<reportElement x="128" y="2" width="1" height="21" uuid="02389915-f882-4824-9a0e-260b8c3b8a75"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="20" uuid="a2180a66-b1a2-4a10-9cbd-0dfcb1ff1924"/>
+			</line>
+			<line>
+				<reportElement x="37" y="2" width="1" height="21" uuid="9039136d-c5c2-4a9a-a6f3-9074023bf8f6"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="34" width="100" height="20" uuid="e8d3c335-69c9-4117-8a22-7f7cbd9987e4"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="34" width="55" height="20" uuid="a2aedd95-7f2c-43ba-82e3-818e36c817de"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="458" y="34" width="54" height="20" uuid="6fbcd3df-4a43-4b8b-bb28-b7ca5a1400cc"/>
+				<text><![CDATA[Pagina]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

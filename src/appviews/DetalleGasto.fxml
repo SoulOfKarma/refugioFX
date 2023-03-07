@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../app.styles/styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.DetalleGastoController">
+   <children>
+      <VBox layoutX="-2.0" prefHeight="616.0" prefWidth="220.0" styleClass="sidebar">
+         <children>
+            <Label fx:id="principal" onMouseClicked="#menuPrincipal" prefHeight="75.0" prefWidth="219.0" style="-fx-background-color: #f2545b;" text="Panel del Administrador" textFill="#fffefe">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="Ebrima" size="18.0" />
+               </font>
+            </Label>
+            <HBox fx:id="boxDep" alignment="CENTER_LEFT" layoutX="10.0" layoutY="95.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="departamentos" onMouseClicked="#depMenu" prefHeight="40.0" prefWidth="284.0" styleClass="btns" text="Departamentos" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="cargarFotosDep" onMouseClicked="#cargarFotosDep" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Cargar Fotos Departamento" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="122.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="inventarios" onMouseClicked="#invMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Inventarios" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="166.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="usuarios" onMouseClicked="#usuariosMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Usuarios" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="210.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="servextra" onMouseClicked="#servExtraMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Servicios Extra" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="254.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="proveedores" onMouseClicked="#proveedoresMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Proveedores" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="detalleGasto" onMouseClicked="#detalleGastoMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Detalle Gastos" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="298.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="gastos" onMouseClicked="#gastosMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Gastos" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="SEARCH" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="reportes" onMouseClicked="#reportesMenu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Reportes" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="349.0" prefHeight="44.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#7C8184" iconName="CLOSE" size="1.3em" wrappingWidth="17.48571491241455" />
+                  <Label fx:id="cerrarSesions" onMouseClicked="#cerrarSesion" prefHeight="40.0" prefWidth="300.0" styleClass="btns" text="Cerrar Sesion" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="218.0" prefHeight="616.0" prefWidth="602.0">
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="603.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="19.0" radius="6.75" width="10.0" />
+               </effect>
+               <children>
+                  <Label layoutX="21.0" layoutY="26.0" text="Detalle Gastos" textFill="#4f565b">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="94.0" fitWidth="95.0" layoutX="509.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../app/imagenes/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <SplitPane dividerPositions="0.36968576709796674" orientation="VERTICAL" prefHeight="543.0" prefWidth="860.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <ComboBox fx:id="cbDepartamento" layoutX="149.0" layoutY="34.0" prefWidth="150.0" />
+                        <ComboBox fx:id="cbGasto" layoutX="419.0" layoutY="34.0" prefWidth="150.0" />
+                        <TextField fx:id="txtPrecio" layoutX="150.0" layoutY="99.0" />
+                        <Label layoutX="66.0" layoutY="38.0" text="Departamento" />
+                        <Label layoutX="105.0" layoutY="103.0" text="Precio" />
+                        <Label layoutX="364.0" layoutY="38.0" text="Gasto" />
+                        <Label layoutX="364.0" layoutY="103.0" text="Fecha" />
+                        <JFXDatePicker fx:id="dateFecha" layoutX="429.0" layoutY="98.0" prefHeight="28.0" prefWidth="149.0" />
+                        <Button fx:id="agregar" layoutX="58.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnAgregar" prefHeight="25.0" prefWidth="94.0" text="Agregar" />
+                        <Button fx:id="modificar" layoutX="187.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnModificar" prefHeight="25.0" prefWidth="94.0" text="Modificar" />
+                        <Button fx:id="eliminar" layoutX="325.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnEliminar" prefHeight="25.0" prefWidth="94.0" text="Eliminar" />
+                        <Button fx:id="limpiar" layoutX="457.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnLimpiar" prefHeight="25.0" prefWidth="94.0" text="Limpiar" />
+                        <Label fx:id="lbidDep" layoutX="21.0" layoutY="6.0" visible="false" />
+                        <Label fx:id="lbGasto" layoutX="21.0" layoutY="59.0" visible="false" />
+                        <Label fx:id="lbFecha" layoutX="14.0" layoutY="112.0" visible="false" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="tablaDetGasto" layoutY="53.0" prefHeight="288.0" prefWidth="601.0">
+                          <columns>
+                              <TableColumn fx:id="tableIdDepartamento" prefWidth="75.0" text="ID DEP" visible="false" />
+                              <TableColumn fx:id="tableIdGasto" prefWidth="75.0" text="ID GASTO" visible="false" />
+                            <TableColumn fx:id="tableNomDep" editable="false" prefWidth="200.0" text="Departamento" />
+                              <TableColumn fx:id="tableGasto" editable="false" prefWidth="128.0" text="Gasto" />
+                              <TableColumn fx:id="tablePrecio" editable="false" prefWidth="124.0" text="Precio" />
+                              <TableColumn fx:id="tableFecha" editable="false" prefWidth="148.0" text="Fecha" />
+                          </columns>
+                        </TableView>
+                        <ComboBox fx:id="cbFiltroDepartamento" layoutX="174.0" layoutY="14.0" onAction="#filtroDepartamento" prefWidth="150.0" />
+                        <Label layoutX="26.0" layoutY="18.0" text="Filtrar por departamento" />
+                        <Button fx:id="cargarTodo" layoutX="388.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCargarTodo" prefHeight="25.0" prefWidth="149.0" text="Cargar Todo" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
